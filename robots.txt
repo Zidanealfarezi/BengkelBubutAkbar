@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bengkelbubutakbar.vercel.app/sitemap.xml
+Sitemap: https://bengkel-bubut-akbar.vercel.app/sitemap.xml
