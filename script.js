@@ -81,27 +81,40 @@ const setupScrollState = () => {
   window.addEventListener("scroll", updateHeader, { passive: true });
 };
 
-const setupRevealAnimations = () => {
-  const revealItems = document.querySelectorAll(".reveal");
+const initAOS = () => {
+  if (typeof AOS === 'undefined') return;
+  
+  // Add data-aos attributes dynamically to keep HTML clean
+  document.querySelectorAll('#home h1').forEach(el => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-duration', '1000'); });
+  document.querySelectorAll('#home p').forEach(el => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', '200'); el.setAttribute('data-aos-duration', '1000'); });
+  document.querySelectorAll('#home .flex').forEach(el => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', '400'); el.setAttribute('data-aos-duration', '1000'); });
+  
+  // About Us Stats
+  document.querySelectorAll('.grid > .p-6.border').forEach((el, i) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', (i * 100).toString()); });
+  
+  // Services Section
+  document.querySelectorAll('#services .text-center').forEach(el => { el.setAttribute('data-aos', 'fade-up'); });
+  document.querySelectorAll('#services .group').forEach((el, i) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', ((i%3) * 100).toString()); });
+  
+  // Portfolio
+  document.querySelectorAll('#portfolio .text-center').forEach(el => { el.setAttribute('data-aos', 'fade-up'); });
+  document.querySelectorAll('.portfolio-card').forEach((el, i) => { el.setAttribute('data-aos', 'zoom-in'); el.setAttribute('data-aos-delay', ((i%4) * 100).toString()); });
+  
+  // Order flow
+  document.querySelectorAll('#order-flow .text-center').forEach(el => { el.setAttribute('data-aos', 'fade-up'); });
+  document.querySelectorAll('#order-flow .group').forEach((el, i) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', (i * 100).toString()); });
+  
+  // Contact
+  document.querySelectorAll('#contact .text-center').forEach(el => { el.setAttribute('data-aos', 'fade-up'); });
+  document.querySelectorAll('#contact .flex-col').forEach(el => { el.setAttribute('data-aos', 'fade-right'); });
+  document.querySelectorAll('#contact .relative').forEach(el => { el.setAttribute('data-aos', 'fade-left'); });
 
-  if (!("IntersectionObserver" in window)) {
-    revealItems.forEach((item) => item.classList.add("visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.14 }
-  );
-
-  revealItems.forEach((item) => observer.observe(item));
+  AOS.init({
+    once: true, // whether animation should happen only once - while scrolling down
+    offset: 50, // offset (in px) from the original trigger point
+    duration: 800, // values from 0 to 3000, with step 50ms
+    easing: 'ease-out-cubic', // default easing for AOS animations
+  });
 };
 
 const setupGallery = () => {
@@ -223,7 +236,7 @@ const setupButtonFeedback = () => {
 setWhatsAppLinks();
 setupMenu();
 setupScrollState();
-setupRevealAnimations();
+initAOS();
 setupGallery();
 setupLightbox();
 setupContactForm();
