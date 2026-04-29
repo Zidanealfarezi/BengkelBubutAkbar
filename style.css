@@ -123,3 +123,111 @@
         display: none;
     }
 }
+/* ===== SCROLL PROGRESS BAR ===== */
+#scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #25D366, #0A192F);
+    z-index: 9999;
+    transition: width 0.1s linear;
+}
+
+/* ===== HERO FLOATING ANIMATION ===== */
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
+
+.hero-float {
+    animation: heroFloat 4s ease-in-out infinite;
+}
+
+/* ===== HERO BADGE PULSE ===== */
+@keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+}
+
+.badge-pulse {
+    animation: badgePulse 2.5s ease-in-out infinite;
+}
+
+/* ===== COUNTER ANIMATION ===== */
+.stat-number {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* ===== MARQUEE / TICKER (Clients) ===== */
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ===== SHIMMER EFFECT ON SERVICE CARDS ===== */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* ===== TYPING CURSOR ===== */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #25D366;
+    font-weight: 300;
+    margin-left: 2px;
+}
+
+/* ===== STEP CONNECTOR ANIMATION ===== */
+@keyframes connectorGrow {
+    from { width: 0; }
+    to { width: 80%; }
+}
+
+/* ===== GLOWING BORDER ON STATS ===== */
+@keyframes statGlow {
+    0%, 100% { border-color: rgba(10, 25, 47, 0.3); }
+    50% { border-color: rgba(37, 211, 102, 0.6); box-shadow: 0 0 12px rgba(37, 211, 102, 0.2); }
+}
+
+.stat-card-animated {
+    animation: statGlow 3s ease-in-out infinite;
+}
+
+/* ===== HERO BG ZOOM ===== */
+@keyframes bgZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.0); }
+}
+
+.hero-bg-img {
+    animation: bgZoom 6s ease-out forwards;
+}
+
+/* ===== SECTION FADE IN CUSTOM ===== */
+[data-aos] {
+    pointer-events: none;
+}
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #scroll-progress-bar,
+    .hero-float,
+    .badge-pulse,
+    .stat-card-animated,
+    .hero-bg-img,
+    .typing-cursor::after {
+        animation: none !important;
+    }
+}

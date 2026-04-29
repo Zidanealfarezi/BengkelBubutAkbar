@@ -203,6 +203,8 @@
 </script>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-primary selection:text-on-primary">
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress-bar"></div>
 <!-- TopNavBar -->
 <header class="docked full-width top-0 sticky z-50 bg-[#0A192F] dark:bg-slate-950 border-b border-[#8E979F] shadow-[4px_4px_0px_0px_#0A192F]">
 <div class="flex justify-between items-center px-6 md:px-12 py-4 w-full">
@@ -227,13 +229,13 @@
 <!-- Hero Section -->
 <section class="relative min-h-[819px] flex items-center justify-center overflow-hidden bg-primary-container" id="home">
 <div class="absolute inset-0 z-0">
-<img alt="Precision Machining" class="w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="close up of precision metal lathe machining a steel cylindrical part with metal shavings flying off, industrial lighting, high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHhBQ62tmC8PvWDw_KX3f_Q3pUnWigpXvbvaf9TCo69v9SJFqExiu6Jlu49DXnVkpyAC6eHUND7JUaRlKoXFP0XRcSfhOjBQjT8kUCDwsxoe0xBBr9RHledKN9mZRIRE2_D4aeG0wZuTMMwzApGES9m74F8enjbSZWz58Yd57uKKeD-2xKZgtwK03mQxMJIRrb75z0jqiD3xDJa4uB4hpUSnpOib62hfVdqS-WDa2oRTLQXhCLhFkL4Zfhs_UvMDLDnOD5VLlmoAPa"/>
+<img alt="Precision Machining" class="hero-bg-img w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="close up of precision metal lathe machining a steel cylindrical part with metal shavings flying off, industrial lighting, high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHhBQ62tmC8PvWDw_KX3f_Q3pUnWigpXvbvaf9TCo69v9SJFqExiu6Jlu49DXnVkpyAC6eHUND7JUaRlKoXFP0XRcSfhOjBQjT8kUCDwsxoe0xBBr9RHledKN9mZRIRE2_D4aeG0wZuTMMwzApGES9m74F8enjbSZWz58Yd57uKKeD-2xKZgtwK03mQxMJIRrb75z0jqiD3xDJa4uB4hpUSnpOib62hfVdqS-WDa2oRTLQXhCLhFkL4Zfhs_UvMDLDnOD5VLlmoAPa"/>
 </div>
 <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-12 text-center text-on-primary">
-<div class="inline-block px-4 py-1 border border-[#8E979F] mb-6 bg-surface/10 backdrop-blur-sm">
+<div class="inline-block px-4 py-1 border border-[#8E979F] mb-6 bg-surface/10 backdrop-blur-sm badge-pulse">
 <span class="font-label-caps text-label-caps tracking-widest text-secondary-fixed">TEKNIK PRESISI &amp; FABRIKASI</span>
 </div>
-<h1 class="font-headline-xl text-headline-xl mb-6 max-w-4xl mx-auto leading-tight">
+<h1 class="font-headline-xl text-headline-xl mb-6 max-w-4xl mx-auto leading-tight hero-float">
                     Presisi Tingkat Industri.<br/>Dikerjakan Sesuai Spesifikasi Anda.
                 </h1>
 <p class="font-body-lg text-body-lg text-secondary-fixed max-w-2xl mx-auto mb-10">
@@ -253,19 +255,19 @@
 <section class="py-20 bg-surface border-b border-outline-variant">
 <div class="max-w-container-max mx-auto px-6 md:px-12">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<div class="p-6 border border-outline-variant bg-surface-container-lowest text-center">
-<div class="font-headline-xl text-headline-xl text-primary-container mb-2">3+</div>
+<div class="p-6 border border-outline-variant bg-surface-container-lowest text-center stat-card-animated">
+<div class="font-headline-xl text-headline-xl text-primary-container mb-2 stat-number" data-target="3" data-suffix="+">3+</div>
 <div class="font-label-caps text-label-caps text-secondary">Tahun Pengalaman</div>
 </div>
-<div class="p-6 border border-outline-variant bg-surface-container-lowest text-center">
-<div class="font-headline-xl text-headline-xl text-primary-container mb-2">300+</div>
+<div class="p-6 border border-outline-variant bg-surface-container-lowest text-center stat-card-animated" style="animation-delay:0.5s">
+<div class="font-headline-xl text-headline-xl text-primary-container mb-2 stat-number" data-target="300" data-suffix="+">300+</div>
 <div class="font-label-caps text-label-caps text-secondary">Proyek Selesai</div>
 </div>
-<div class="p-6 border border-outline-variant bg-surface-container-lowest text-center">
+<div class="p-6 border border-outline-variant bg-surface-container-lowest text-center stat-card-animated" style="animation-delay:1s">
 <div class="font-headline-xl text-headline-xl text-primary-container mb-2">0.01</div>
 <div class="font-label-caps text-label-caps text-secondary">mm Toleransi Presisi</div>
 </div>
-<div class="p-6 border border-outline-variant bg-surface-container-lowest text-center">
+<div class="p-6 border border-outline-variant bg-surface-container-lowest text-center stat-card-animated" style="animation-delay:1.5s">
 <div class="font-headline-xl text-headline-xl text-primary-container mb-2">24/7</div>
 <div class="font-label-caps text-label-caps text-secondary">Perbaikan Darurat</div>
 </div>

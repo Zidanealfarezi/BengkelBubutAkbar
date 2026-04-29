@@ -1,4 +1,4 @@
-beconst WHATSAPP_NUMBER = "6282285036041";
+const WHATSAPP_NUMBER = "6282285036041";
 const WHATSAPP_DISPLAY = "+62 822-8503-6041";
 
 const buildWhatsAppUrl = (message) => {
@@ -79,6 +79,51 @@ const setupScrollState = () => {
   sections.forEach((section) => observer.observe(section));
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
+};
+
+// ===== SCROLL PROGRESS BAR =====
+const setupScrollProgress = () => {
+  const bar = document.getElementById('scroll-progress-bar');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+};
+
+// ===== COUNTER ANIMATION =====
+const setupCounterAnimation = () => {
+  const counters = document.querySelectorAll('.stat-number[data-target]');
+  if (!counters.length) return;
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1500;
+    const step = Math.ceil(target / (duration / 16));
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = current + suffix;
+    }, 16);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => observer.observe(el));
 };
 
 const initAOS = () => {
@@ -249,6 +294,8 @@ const setupButtonFeedback = () => {
 setWhatsAppLinks();
 setupMenu();
 setupScrollState();
+setupScrollProgress();
+setupCounterAnimation();
 initAOS();
 setupGallery();
 setupLightbox();
