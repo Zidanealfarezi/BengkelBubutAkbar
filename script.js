@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "6282285036041";
+beconst WHATSAPP_NUMBER = "6282285036041";
 const WHATSAPP_DISPLAY = "+62 822-8503-6041";
 
 const buildWhatsAppUrl = (message) => {
