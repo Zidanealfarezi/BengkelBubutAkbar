@@ -137,7 +137,13 @@ const initAOS = () => {
     
     // About Us Stats
     document.querySelectorAll('.grid > .p-6.border').forEach((el, i) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', (i * 100).toString()); });
-    
+
+    // Tentang Kami
+    document.querySelectorAll('#tentang .inline-block, #tentang h2').forEach(el => { el.setAttribute('data-aos', 'fade-up'); });
+    document.querySelectorAll('#tentang p').forEach((el, i) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', ((i + 1) * 100).toString()); });
+    document.querySelectorAll('#tentang .flex-wrap').forEach(el => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', '400'); });
+    document.querySelectorAll('#tentang .border-2').forEach(el => { el.setAttribute('data-aos', 'fade-left'); el.setAttribute('data-aos-duration', '1000'); });
+
     // Services Section
     document.querySelectorAll('#services .text-center').forEach(el => { el.setAttribute('data-aos', 'fade-up'); });
     document.querySelectorAll('#services .group').forEach((el, i) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', ((i%3) * 100).toString()); });
@@ -153,6 +159,10 @@ const initAOS = () => {
     // Order flow
     document.querySelectorAll('#order-flow .text-center').forEach(el => { el.setAttribute('data-aos', 'fade-up'); });
     document.querySelectorAll('#order-flow .group').forEach((el, i) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', (i * 100).toString()); });
+
+    // FAQ
+    document.querySelectorAll('#faq .text-center').forEach(el => { el.setAttribute('data-aos', 'fade-up'); });
+    document.querySelectorAll('#faq details').forEach((el, i) => { el.setAttribute('data-aos', 'fade-up'); el.setAttribute('data-aos-delay', (i * 100).toString()); });
     
     // Contact
     document.querySelectorAll('#contact .text-center').forEach(el => { el.setAttribute('data-aos', 'fade-up'); });
